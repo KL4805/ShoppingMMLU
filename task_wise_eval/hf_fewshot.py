@@ -7,7 +7,7 @@ import random
 import torch
 import transformers
 from utils import load_tokenizer_and_model
-
+import os
 
 def format_subject(subject):
     l = subject.split("_")
@@ -20,7 +20,6 @@ def format_subject(subject):
     
 torch.backends.cuda.enable_mem_efficient_sdp(False)
 torch.backends.cuda.enable_flash_sdp(False)
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--test_subject', type=str, default='attribute_selection')
@@ -77,7 +76,12 @@ start_time = time.time()
 print("Running %s model on %s task" % (model_name, test_subject))
 tokenizer, model = load_tokenizer_and_model(model_name)
 
-test_df = pd.read_csv("../data/multiple_choice/%s_dataset.csv"%test_subject)
+
+filename = f'../data/multiple_choice/{test_subject}_dataset.csv'
+try:
+    test_df = pd.read_csv(filename)
+except:
+    raise FileNotFoundError(f"{filename} does not exist. Please check the 'test_subject' variable. ")
 correct = 0
 ill_format = 0
 all_samples = test_df.shape[0]
@@ -88,7 +92,6 @@ for i in range(all_samples):
     test_prompt = format_example(test_df, i)
     prompt = few_shot_prompt + test_prompt
     
-
     label = test_df.iloc[i, -1]
     if 'review_rating_prediction' not in test_subject:
         label = choices[int(label)]
