@@ -6,6 +6,7 @@ This is the repository for 'ShopBench: An Online Shopping Benchmark for LLMs', u
 ## Data format
 
 ## Evaluation on a Single Task
+Our evaluation is based on `HuggingFace Transformers >= 4.37.0`. 
 
 ## Evaluation on a Skill
 
