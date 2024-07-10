@@ -117,6 +117,6 @@ for i in range(all_samples):
         print("Sample %d hit"%i, hit)
         print()
 
-print("%d-shot retrieval task %s with %s:"%(nshots, test_subject, model_name))
+print("retrieval task %s with %s:"%(test_subject, model_name))
 print("Average hit rate %.4f, %d ill-formatted generations"%(total_hit / all_samples, ill_format))
 print("Time cost %.4fs"%(time.time() - start_time))
