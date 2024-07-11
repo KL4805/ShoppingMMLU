@@ -24,8 +24,27 @@ Files for multiple choice questions are organized in `.csv` formats with three c
 Files for other types of tasks are organized in `.json` formats with two fields, `input_field` and `target_field`. 
 
 ## Running evaluations
-### Evaluation on a Single Task
+### Dependencies
+Our evaluation code is based on HuggingFace `transformers` with the following dependencies. 
+```
+transformers==4.37.0
+torch==2.1.2+cu121
+pandas==2.0.3
+evaluate==0.4.1
+sentence_transformers==2.2.2
+rouge_score
+sacrebleu
+sacrebleu[jp]
+```
 
+### Evaluation on a Single Task
+Suppose you want to evaluate `Vicuna-7B-v1.5` model on the `multiple_choice` task of `asin_compatibility`, you can do the following steps. 
+```
+cd task_wise_eval/
+python3 hf_multi_choice.py --test_subject asin_compatibility --model_name vicuna2
+# The 'model_name' argument should be set according to 'utils.py'. 
+```
+Other tasks in other task types involve similar processes. 
 ### Evaluation on a Skill
 
 ## Reference
