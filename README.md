@@ -12,6 +12,7 @@ This is the repository for 'ShopBench: An Online Shopping Benchmark for LLMs', u
 
 ## Data
 ### Where to download? 
+The zipfile `data.zip` contains all data in ShopBench. Create a new folder `data`, and unzip the zipfile in it. 
 
 ### Data formats
 We have five different types of tasks, **multiple choice**, **retrieval**, **ranking**, **named entity recognition**, and **generation**. 
