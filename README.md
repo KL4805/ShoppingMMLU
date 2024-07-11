@@ -45,6 +45,14 @@ python3 hf_multi_choice.py --test_subject asin_compatibility --model_name vicuna
 # The 'model_name' argument should be set according to 'utils.py'. 
 ```
 Other tasks in other task types involve similar processes. 
-### Evaluation on a Skill
-
+### Evaluation on a Skill as a whole
+Suppose you want to evaluate `Vicuna-7B-v1.5` model on the skill of `skill1_concept`, you can do the following steps. 
+```
+cd skill_wise_eval/
+python3 hf_skill_inference.py --model_name vicuna2 --filename skill1_concept --output_filename <your_filename>
+# After inference, the output file will be saved at `skill_inference_results/skill1_concept/vicuna2_<your_filename>.json`.
+python3 skill_evaluation.py --data_filename skill1_concept --output_filename vicuna2_<your_filename>
+# After evaluation, the metrics will be saved at `skill_metrics/skill1_concept/vicuna2_<your_filename>_metrics.json`. 
+```
+Other skills involve similar processes. 
 ## Reference
