@@ -6,7 +6,7 @@ import time
 import random
 import torch
 import transformers
-from utils import load_tokenizer_and_model
+from utils import *
 import os
     
 torch.backends.cuda.enable_mem_efficient_sdp(False)
@@ -37,36 +37,12 @@ if not args.use_letter_choices:
 else:
     choices = ['A', 'B', 'C', 'D']
 
-def format_example(df, idx):
-    prompt = df.iloc[idx, 0]
-    k = 4
-    if 'review_rating_prediction' not in test_subject:
-        candidates = eval(df.iloc[idx, 1])
-        for j in range(k):
-            if args.use_letter_choices: 
-                prompt += "\n({}) {}".format(choices[j], candidates[j])
-            else:
-                prompt += "\n{}. {}".format(choices[j], candidates[j])
-    if args.use_letter_choices:
-        prompt += '\n\nPlease answer the question with a single letter indicating the choice. '
-    prompt += "\nAnswer: "
-    return prompt
 
-def gen_system_prompt(subject):
-    if args.use_task_specific_prompt:
-        if subject != 'review_rating_prediction':
-            prompt = 'The following is a multiple choice question about {}.\n\n'.format(format_subject(subject))
-        else:
-            prompt = 'The following is a review rating prediction question.\n\n'
-    else:
-        prompt = 'You are a helpful online shopping assistant. Please answer the following question about online shopping and follow the given instructions.\n\n'
-    return prompt
 
 start_time = time.time()
     
 print("Running %s model on %s task" % (model_name, test_subject))
 tokenizer, model = load_tokenizer_and_model(model_name)
-
 
 filename = f'../data/multiple_choice/{test_subject}_dataset.csv'
 try:
@@ -79,8 +55,8 @@ all_samples = test_df.shape[0]
 
 
 for i in range(all_samples):
-    few_shot_prompt = gen_system_prompt(test_subject)
-    test_prompt = format_example(test_df, i)
+    few_shot_prompt = gen_system_prompt(args, is_multiple_choice=True)
+    test_prompt = format_example(test_df, i, is_multi_choice=True, args=args)
     prompt = few_shot_prompt + test_prompt
     
     label = test_df.iloc[i, -1]

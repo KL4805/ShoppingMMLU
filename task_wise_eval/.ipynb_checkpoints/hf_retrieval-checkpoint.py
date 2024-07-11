@@ -7,22 +7,9 @@ import random
 import torch
 import transformers
 import numpy as np
-from utils import load_tokenizer_and_model
+from utils import *
 import os
 
-def format_subject(subject):
-    l = subject.split("_")
-    s = ""
-    for entry in l:
-        if entry == 'pt':
-            entry = 'product type'
-        s += " " + entry
-    return s
-
-def format_example(df, idx):
-    prompt = df.iloc[idx, 0]
-    answer = df.iloc[idx, 1]
-    return prompt
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--test_subject', type=str, default='product_keyphrase_retrieval')
@@ -33,12 +20,6 @@ parser.add_argument('--max_gen_len', type=int, default=15)
 parser.add_argument('--use_task_specific_prompt', action='store_true')
 args = parser.parse_args()
 
-def gen_system_prompt(subject):
-    if args.use_task_specific_prompt:
-        prompt = "You are required to perform the task of %s. Please follow the given instructions.\n\n"%format_subject(subject)
-    else:
-        prompt = 'You are a helpful online shopping assistant. Please answer the following question about online shopping and follow the given instructions.\n\n'
-    return prompt
 
 
 seed = args.seed
@@ -66,7 +47,7 @@ all_samples = test_df.shape[0]
 
     
 for i in range(all_samples):
-    system_prompt = gen_system_prompt(test_subject)
+    system_prompt = gen_system_prompt(args)
     test_prompt = format_example(test_df, i)
     prompt = system_prompt + test_prompt
     if i % args.print_interval == 0:

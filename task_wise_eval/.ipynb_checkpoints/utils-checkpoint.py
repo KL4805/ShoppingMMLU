@@ -84,3 +84,57 @@ def load_tokenizer_and_model(model_name):
         model = AutoModelForCausalLM.from_pretrained(model_path, device_map='auto', torch_dtype=torch.float16, trust_remote_code=True)
 
     return tokenizer, model
+
+def format_subject(subject):
+    l = subject.split("_")
+    s = ""
+    for entry in l:
+        if entry == 'pt':
+            entry = 'product type'
+        s += " " + entry
+    return s
+
+def format_example(df, idx, is_multi_choice=False, args=None):
+    if not is_multi_choice:
+        prompt = df.iloc[idx, 0]
+        answer = df.iloc[idx, 1]
+    
+        return prompt
+    else:
+        if not args.use_letter_choices:
+            if 'review_rating_prediction' not in args.test_subject:
+                choices = ['0', '1', '2', '3']
+            else:
+                choices = ['1', '2', '3', '4', '5']
+        else:
+            choices = ['A', 'B', 'C', 'D']
+        prompt = df.iloc[idx, 0]
+        k = 4
+        if 'review_rating_prediction' not in args.test_subject:
+            candidates = eval(df.iloc[idx, 1])
+            for j in range(k):
+                if args.use_letter_choices: 
+                    prompt += "\n({}) {}".format(choices[j], candidates[j])
+                else:
+                    prompt += "\n{}. {}".format(choices[j], candidates[j])
+        if args.use_letter_choices:
+            prompt += '\n\nPlease answer the question with a single letter indicating the choice. '
+        prompt += "\nAnswer: "
+        return prompt
+
+def gen_system_prompt(args, is_multiple_choice=False):
+    if not is_multiple_choice:
+        if args.use_task_specific_prompt:
+            prompt = 'You are required to perform the task of %s. Please follow the given instructions.\n\n'%format_subject(args.test_subject)
+        else:
+            prompt = 'You are a helpful online shopping assistant. Please answer the following question about online shopping and follow the given instructions.\n\n'
+        return prompt
+    else:
+        if args.use_task_specific_prompt:
+            if args.test_subject != 'review_rating_prediction':
+                prompt = 'The following is a multiple choice question about {}.\n\n'.format(format_subject(args.test_subject))
+            else:
+                prompt = 'The following is a review rating prediction question.\n\n'
+        else:
+            prompt = 'You are a helpful online shopping assistant. Please answer the following question about online shopping and follow the given instructions.\n\n'
+        return prompt
