@@ -1,5 +1,5 @@
-# ShopBench
-This is the repository for 'ShopBench: An Online Shopping Benchmark for LLMs', used for [Amazon KDD Cup 2024](https://www.aicrowd.com/challenges/amazon-kdd-cup-2024-multi-task-online-shopping-challenge-for-llms). ShopBench is a massive multi-task benchmark for LLMs on online shopping, covering four major shopping skills, **shopping concept understanding**, **shopping knowledge reasoning**, **user behavior alignment**, and **multi-lingual abilities**. 
+# Shopping MMLU
+This is the repository for 'Shopping MMLU: A Massive Multi-Task Online Shopping Benchmark for Large Language Models', which is accepted by **NeurIPS 2024 Datasets and Benchmarks Track** and used for [Amazon KDD Cup 2024](https://www.aicrowd.com/challenges/amazon-kdd-cup-2024-multi-task-online-shopping-challenge-for-llms). Shopping MMLU is a massive multi-task benchmark for LLMs on online shopping, covering four major shopping skills, **shopping concept understanding**, **shopping knowledge reasoning**, **user behavior alignment**, and **multi-lingual abilities**. 
 
 ## Repo Organization
 ```
@@ -12,7 +12,7 @@ This is the repository for 'ShopBench: An Online Shopping Benchmark for LLMs', u
 
 ## Data
 ### Where to download? 
-The zipfile `data.zip` contains all data in ShopBench. Create a new folder `data`, and unzip the zipfile in it. 
+The zipfile `data.zip` contains all data in Shopping MMLU. Create a new folder `data`, and unzip the zipfile in it. 
 
 ### Data formats
 We have five different types of tasks, **multiple choice**, **retrieval**, **ranking**, **named entity recognition**, and **generation**. 
