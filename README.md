@@ -56,4 +56,8 @@ python3 skill_evaluation.py --data_filename skill1_concept --output_filename vic
 # After evaluation, the metrics will be saved at `skill_metrics/skill1_concept/vicuna2_<your_filename>_metrics.json`. 
 ```
 Other skills involve similar processes. 
+
+## LeaderBoard
+<img width="913" alt="image" src="https://github.com/user-attachments/assets/26d4ce0e-c020-4c41-9220-ba38894a9b25">
+
 ## Reference
