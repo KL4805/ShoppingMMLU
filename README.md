@@ -62,7 +62,7 @@ python3 skill_evaluation.py --data_filename skill1_concept --output_filename vic
 Other skills involve similar processes. 
 
 ## LeaderBoard
-<img width="913" alt="image" src="https://github.com/user-attachments/assets/26d4ce0e-c020-4c41-9220-ba38894a9b25">
+<img width="1247" alt="image" src="https://github.com/user-attachments/assets/e47dfaf7-a01d-4f89-a6cf-9982ef0b4d69">
 
 Details of the tested models can be found in the Appendix of our paper. 
 
