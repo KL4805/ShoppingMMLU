@@ -1,6 +1,11 @@
 # Shopping MMLU
 This is the repository for 'Shopping MMLU: A Massive Multi-Task Online Shopping Benchmark for Large Language Models', which is accepted by **NeurIPS 2024 Datasets and Benchmarks Track** and used for [Amazon KDD Cup 2024](https://www.aicrowd.com/challenges/amazon-kdd-cup-2024-multi-task-online-shopping-challenge-for-llms). Shopping MMLU is a massive multi-task benchmark for LLMs on online shopping, covering four major shopping skills, **shopping concept understanding**, **shopping knowledge reasoning**, **user behavior alignment**, and **multi-lingual abilities**. 
 
+<img width="1604" alt="image" src="https://github.com/user-attachments/assets/38b8784e-34cb-4add-81f8-538eb91ee1e0">
+
+<img width="748" alt="image" src="https://github.com/user-attachments/assets/4b7aadea-7ae5-4768-a300-21d030befddb">
+
+
 You can find more detailed information about the dataset in the following links:
 - The paper and supplementary materials [here](https://arxiv.org/pdf/2410.20745).
 - The workshop of our KDD Cup Challenge and winning solutions [here](https://amazon-kddcup24.github.io).
