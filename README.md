@@ -3,9 +3,6 @@ This is the repository for 'Shopping MMLU: A Massive Multi-Task Online Shopping 
 
 <img width="1604" alt="image" src="https://github.com/user-attachments/assets/38b8784e-34cb-4add-81f8-538eb91ee1e0">
 
-<img width="548" alt="image" src="https://github.com/user-attachments/assets/4b7aadea-7ae5-4768-a300-21d030befddb">
-
-
 You can find more detailed information about the dataset in the following links:
 - The paper and supplementary materials [here](https://arxiv.org/pdf/2410.20745).
 - The workshop of our KDD Cup Challenge and winning solutions [here](https://amazon-kddcup24.github.io).
