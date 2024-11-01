@@ -69,3 +69,11 @@ Other skills involve similar processes.
 Details of the tested models can be found in the Appendix of our paper. 
 
 ## Reference
+```
+@article{jin2024shopping,
+  title={Shopping MMLU: A Massive Multi-Task Online Shopping Benchmark for Large Language Models},
+  author={Jin, Yilun and Li, Zheng and Zhang, Chenwei and Cao, Tianyu and Gao, Yifan and Jayarao, Pratik and Li, Mao and Liu, Xin and Sarkhel, Ritesh and Tang, Xianfeng and others},
+  journal={arXiv preprint arXiv:2410.20745},
+  year={2024}
+}
+```
