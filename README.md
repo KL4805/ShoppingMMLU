@@ -6,6 +6,7 @@ This is the repository for 'Shopping MMLU: A Massive Multi-Task Online Shopping 
 You can find more detailed information about the dataset in the following links:
 - The paper and supplementary materials [here](https://arxiv.org/pdf/2410.20745).
 - The workshop of our KDD Cup Challenge and winning solutions [here](https://amazon-kddcup24.github.io).
+- The HuggingFace Leaderboard [here](https://huggingface.co/spaces/KL4805/shopping_mmlu_leaderboard). 
 
 ## Repo Organization
 ```
