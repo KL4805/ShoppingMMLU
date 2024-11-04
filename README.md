@@ -65,9 +65,9 @@ python3 skill_evaluation.py --data_filename skill1_concept --output_filename vic
 Other skills involve similar processes. 
 
 ## LeaderBoard
-<img width="1247" alt="image" src="https://github.com/user-attachments/assets/e47dfaf7-a01d-4f89-a6cf-9982ef0b4d69">
+We host a live HuggingFace leaderboard [here](https://huggingface.co/spaces/KL4805/shopping_mmlu_leaderboard). Details of the tested models can be found in the Appendix of our paper. 
 
-Details of the tested models can be found in the Appendix of our paper. 
+We are actively maintaining the leaderboard by adding more models. If you want to test your LLM as a shopping assistant, please leave an issue in this repo. 
 
 ## Reference
 ```
